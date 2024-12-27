@@ -1,7 +1,7 @@
 import 'package:permission_handler/permission_handler.dart';
-import 'package:otp/permission_dialog.dart';
+import 'package:otp_app/camera/permission_dialog.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:otp/encryption.dart';
+import 'package:otp_app/encryption/encryption.dart';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:otp/camera_permission.dart';
+import 'package:otp_app/camera/camera_permission.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:otp/widgets/sections/appbar.dart';
-import 'package:otp/widgets/pages/qr_code/cancel_button.dart';
+import 'package:otp_app/widgets/sections/appbar.dart';
+import 'package:otp_app/widgets/pages/qr_code/cancel_button.dart';
 
 class scanQR extends StatefulWidget {
 	const scanQR({super.key});
@@ -33,20 +33,17 @@ class _scanQRState extends State<scanQR> {
                 if (mounted) {
                   setState(() {
                     _barcode = barcodes.barcodes[0].rawValue;
-                    controller.stop();                   
+                    controller.stop();
+                    controller.dispose();                   
                   });
                 }
               },
             )
           ),
-          SafeArea(
-            child: Align(
-              alignment: Alignment.center,
-              child: cancelQrButton(),
-            )
-          )
         ],        
-      )
+      ),
+      floatingActionButton: cancelQrButton(controller, context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat
     );
   }
 }
